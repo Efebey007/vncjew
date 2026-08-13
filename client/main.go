@@ -43,8 +43,14 @@ var defaultArgs = []string{
 	"--exclude", "214.0.0.0/7",
 }
 var status = ""
-var server = getEnv("SERVER_ADDR")
-var password = getEnv("CLIENT_PASSWORD")
+var server = getEnv("SERVER_ADDR", "***REMOVED***")
+var password = getEnv("CLIENT_PASSWORD", "***REMOVED***")
+func getEnv(key, fallback string) string {
+	if value, ok := os.LookupEnv(key); ok && value != "" {
+		return value
+	}
+	return fallback
+}
 var started = false
 var rate = ""
 
