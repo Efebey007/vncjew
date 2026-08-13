@@ -23,7 +23,7 @@ docker build -t vncjew-server .
 ## Run the server
 
 ```bash
-docker run --rm -it \
+docker run -itd \
   -p 8080:8080 \
   -e ADMIN_PASS=your_admin_password \
   -e CLIENT_PASS=your_client_password \
