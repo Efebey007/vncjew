@@ -1,7 +1,9 @@
 package main
 
-import "time"
-import "os"
+import (
+    "time"
+    "os"
+    )
 
 var adminPassword = getEnv("ADMIN_PASS", "admin123")
 var clientPassword = getEnv("CLIENT_PASS", "client123")
