@@ -84,4 +84,3 @@ docker run --rm -it \
 
 - The Dockerfiles clone `https://github.com/Efebey007/vncjew.git` and keep only the corresponding `server` or `client` directory.
 - Other files and folders from the repository are removed before the app is built.
-- The server image also ensures `vncscreenshot` is executable if it exists.
