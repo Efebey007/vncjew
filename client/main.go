@@ -23,7 +23,7 @@ var ws *websocket.Conn
 var masscan *exec.Cmd
 var sourcePort = "61234"
 var defaultArgs = []string{
-	"--open", "--open-only", "-p5900-5910", "--banners",
+	"--open", "--open-only", "-p5900-5920", "--banners",
 	"--source-port", sourcePort, "-oD", "/dev/stdout",
 	"--exclude", "0.0.0.0/8", "--exclude", "10.0.0.0/8",
 	"--exclude", "100.64.0.0/10", "--exclude", "127.0.0.0/8",
@@ -43,8 +43,8 @@ var defaultArgs = []string{
 	"--exclude", "214.0.0.0/7",
 }
 var status = ""
-var server = "***REMOVED***"
-var password = "***REMOVED***"
+var server = getEnv("SERVER_ADDR")
+var password = getEnv("CLIENT_PASSWORD")
 var started = false
 var rate = ""
 
@@ -66,7 +66,7 @@ func main() {
 		log.Println("Please install iptables to work propery")
 	}
 
-	sec := "s"
+	sec := ""
 	if len(os.Args) > 2 && os.Args[2] == "http" {
 		sec = ""
 	}
